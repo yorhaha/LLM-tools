@@ -86,6 +86,8 @@ def main():
     pool.close()
     pool.join()
 
+    res = [item for sublist in res for item in sublist]
+
     with open(args.output_path, "w", encoding="utf-8") as f:
         json.dump(res, f, ensure_ascii=False, indent=2)
 
